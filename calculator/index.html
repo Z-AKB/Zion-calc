@@ -70,6 +70,36 @@
                     <button class="btn btn-equals" onclick="calculateResult()" style="grid-column: span 4;">=</button>
                   </div>
                 </div>
+
+                <!-- Speed Converter -->
+                <div class="mt-4">
+                  <h6 class="mb-2 text-center">Speed Converter</h6>
+                  <div class="d-flex gap-2 align-items-center mb-2">
+                    <input type="number" id="speed-input" class="form-control" placeholder="Value" oninput="convertSpeed()">
+                    <select id="speed-from" class="form-select" onchange="convertSpeed()">
+                      <option value="mps">m/s</option>
+                      <option value="kmh">km/h</option>
+                      <option value="mph">mph</option>
+                      <option value="knot">knots</option>
+                      <option value="fps">ft/s</option>
+                    </select>
+                  </div>
+                  <div class="text-center mb-2">
+                    <button class="btn btn-light" onclick="swapSpeedUnits()">⇄</button>
+                  </div>
+                  <div class="d-flex gap-2 align-items-center">
+                    <input type="text" id="speed-output" class="form-control" placeholder="Result" disabled>
+                    <select id="speed-to" class="form-select" onchange="convertSpeed()">
+                      <option value="kmh">km/h</option>
+                      <option value="mps">m/s</option>
+                      <option value="mph">mph</option>
+                      <option value="knot">knots</option>
+                      <option value="fps">ft/s</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+
               </div>
             </div>
           </div>

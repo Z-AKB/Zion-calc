@@ -6,6 +6,44 @@ let LAST_RESULT = 0;
 var currentExpression = "";
 
 // ------------------------------
+// Speed Unit Converter
+// ------------------------------
+const SPEED_FACTORS = {
+  mps:  1,            // meters per second (base unit)
+  kmh:  1 / 3.6,      // km/h -> m/s
+  mph:  0.44704,      // mph -> m/s
+  knot: 0.514444,     // knots -> m/s
+  fps:  0.3048        // feet/sec -> m/s
+};
+
+function convertSpeed() {
+  const input = document.getElementById("speed-input");
+  const fromUnit = document.getElementById("speed-from");
+  const toUnit = document.getElementById("speed-to");
+  const output = document.getElementById("speed-output");
+
+  const value = parseFloat(input.value);
+  if (isNaN(value)) {
+    output.value = "";
+    return;
+  }
+
+  const baseValue = value * SPEED_FACTORS[fromUnit.value];
+  const result = baseValue / SPEED_FACTORS[toUnit.value];
+
+  output.value = Number(result.toFixed(6)).toString();
+}
+
+function swapSpeedUnits() {
+  const fromUnit = document.getElementById("speed-from");
+  const toUnit = document.getElementById("speed-to");
+  const temp = fromUnit.value;
+  fromUnit.value = toUnit.value;
+  toUnit.value = temp;
+  convertSpeed();
+}
+
+// ------------------------------
 // Theme Toggle Logic
 // ------------------------------
 function toggleTheme() {
